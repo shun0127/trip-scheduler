@@ -1,0 +1,32 @@
+<ul class="list-unstyled">
+  <li class="media mb-3">
+    <div class="media-title border">
+      <div>
+        プラン名：<%=  plan.title %> 
+      </div>
+      <div>
+        <p class="mb-0">概要　　：<%= plan.content %></p>
+        <p class="mb-0">最終目的地　　：<%= plan.destination %></p>
+      </div>
+    </div>
+  </li>
+  <% schedules.each do |schedule| %>
+    <li class="media mb-1  border">
+      <div class="media-body">
+        <div>
+          日付：<%=  schedule.date %> 
+        </div>
+        <div>
+          <p class="mb-0">時間　　：<%= schedule.time %></p>
+        </div>
+        <div>
+          <p class="mb-0">目的地　　：<%= schedule.destination %></p>
+        </div>
+        <div>
+          <p class="mb-0">内容　　：<%= schedule.content %></p>
+        </div>
+
+      </div>
+    </li>
+  <% end %>
+</ul>

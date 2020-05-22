@@ -1,0 +1,25 @@
+<div class="nested-fields border mb-1">
+    <div class="form-row">
+        <div class="form-group col-sm-3">
+            <%= f.label :date, '日付' %>
+            <%= f.date_field :date, class: 'form-control' %>
+        </div>
+        
+        <div class="form-group col-sm-3">
+            <%= f.label :time, '時刻' %>
+            <%= f.time_field :time, class: 'form-control' %>
+        </div>
+        
+        <div class="form-group col">
+            <%= f.label :destination, '目的地' %>
+            <%= f.text_field :destination, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :content, '内容' %>
+        <%= f.text_field :content, class: 'form-control' %>
+    </div>
+    <div class="link mb-1">
+        <%= link_to_remove_association "削除", f ,class: 'btn btn-danger btn-sm'  %>
+    </div>
+</div>

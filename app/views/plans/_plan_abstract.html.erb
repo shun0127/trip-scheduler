@@ -1,0 +1,28 @@
+
+<ul class="list-unstyled">
+  <% plans.each do |plan| %>
+    <% user = User.find(plan.user_id)%>
+    <li class="media mb-3  border">
+      <div class="media-body">
+        <% plan_call_from = call_from %>
+        <% if plan_call_from == "search"%>
+          <div> 
+            ユーザ：<%=  user.name %> 
+          </div>
+        <% end %>
+        <div>
+          プラン名：<%=  plan.title %> 
+        </div>
+        <div>
+          <p class="mb-0">概要　　：<%= plan.content %></p>
+          <p class="mb-0">最終目的地　　：<%= plan.destination %></p>
+        </div>
+        <span class="text-muted">posted at <%= plan.created_at %></span>
+        <div>
+            <%= link_to "Read More", plan, class: 'btn btn-success btn-sm' %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate plans %>
+</ul>

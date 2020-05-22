@@ -1,0 +1,18 @@
+<h1><%= @user.name %> の詳細ページ</h1>
+
+<p>名前: 
+<%= @user.name %>
+</p>
+<p>Webサイト: 
+<%= @user.website %>
+</p>
+<p>自己紹介: 
+<%= @user.information %>
+</p>
+
+
+<% if current_user == @user%>
+    <%= link_to 'プロフィールを編集する', edit_user_path(@user) , class: 'btn btn-primary btn-sm'%>
+
+    <%= link_to '退会する', @user, method: :delete, data: { confirm: '本当に退会してよろしいですか？' }, class: 'btn btn-danger btn-sm' %>
+<%end%>

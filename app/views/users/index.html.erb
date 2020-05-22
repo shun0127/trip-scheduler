@@ -1,0 +1,13 @@
+<ul class="list-unstyled">
+    <% @users.each do |user| %>
+        <li class="media mb-3  border">
+            <div class="media-body">
+                <div> 
+                    ユーザ：<%=  user.name %> 
+                </div>
+                <%= link_to "プラン一覧", user, class: 'btn btn-success btn-sm' %>
+            </div>
+        </li>
+    <% end %>
+    <%= paginate @users %>
+</ul>

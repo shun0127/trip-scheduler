@@ -1,0 +1,6 @@
+<%= render "plan_detail", plan: @plan, schedules: @schedules %>
+
+<% if current_user == @user%>
+    <%= link_to '編集', edit_plan_path(@plan) , class: 'btn btn-primary btn-sm'%>
+    <%= link_to '削除', @plan, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger btn-sm' %>
+<%end%>
