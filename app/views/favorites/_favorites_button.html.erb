@@ -2,12 +2,12 @@
     <%= form_with(model: current_user.favorites.find_by(plan_id: favorite.id), local: true,method: :delete) do |f| %>
         <%= hidden_field_tag :plan_id, favorite.id %>
         <%= hidden_field_tag :call_favorite_from, call_favorite_from %>
-        <%= f.submit "Unfavorite", class: "btn btn-danger btn-sm" %>
+        <%= f.submit "お気に入り解除", class: "btn btn-danger btn-sm" %>
     <% end %>
 <% else %>
     <%= form_with(model: current_user.favorites.build, local: true) do |f| %>
         <%= hidden_field_tag :plan_id, favorite.id %>
         <%= hidden_field_tag :call_favorite_from, call_favorite_from %>
-        <%= f.submit "Favorite", class: "btn btn-primary btn-sm" %>
+        <%= f.submit "お気に入り", class: "btn btn-primary btn-sm" %>
     <% end %>
 <% end %>

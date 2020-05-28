@@ -1,15 +1,22 @@
-<h1><%= @user.name %> の詳細ページ</h1>
-
-<p>名前: 
-<%= @user.name %>
-</p>
-<p>Webサイト: 
-<%= @user.website %>
-</p>
-<p>自己紹介: 
-<%= @user.information %>
-</p>
-
+<h3 class="text-center"><%= @user.name %> のプロフィール</h3>
+<div class="row">
+    <div class="col-sm-7">
+        <table class="table table-sm">
+            <tr class="d-flex">
+                <th class="text-center col-sm-4">名前:</th> 
+                <td class="text-left col-sm-8"><%= @user.name %></td>
+            </tr>
+            <tr class="d-flex">
+                <th class="text-center col-sm-4">Webサイト:</th> 
+                <td class="text-left col-sm-8"><%= @user.website %></td>
+            </tr>
+            <tr class="d-flex">
+                <th class="text-center col-sm-4">自己紹介:</th> 
+                <td class="text-left col-sm-8"><%= @user.information %></td>
+            </tr>
+        </table>
+    </div>
+</div>
 <div class="mb-3">
     <% if current_user == @user%>
         <%= link_to 'プロフィールを編集する', edit_user_path(@user) , class: 'btn btn-primary btn-sm'%>

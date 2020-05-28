@@ -70,8 +70,8 @@ class UsersController < ApplicationController
   end
   
   def correct_user
-      @plan = current_user.plans.find_by(id: params[:id])
-      unless @plan
+    @user = User.find(params[:id])
+      unless @user == current_user
           redirect_to root_url
       end
   end
