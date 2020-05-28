@@ -84,7 +84,7 @@ class PlansController < ApplicationController
   def plan_ranking
     @searchbar = "need"
     #binding.pry
-    @plans = Plan.joins("left join favorites on plans.id = favorites.plan_id").group("plans.id").order("count(favorites.id) desc").page(params[:page]).per(25)
+    @plans = Plan.joins("left join favorites on plans.id = favorites.plan_id").group("plans.id").where(open: 1 ).order("count(favorites.id) desc").page(params[:page]).per(25)
   end   
 
 
