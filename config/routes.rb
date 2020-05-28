@@ -8,8 +8,14 @@ Rails.application.routes.draw do
     get "signup", to: "users#new"
     get "search", to: "plans#search"
     get "plan_ranking", to: "plans#plan_ranking"
-    resources :users, only:[:index, :show, :edit, :update, :create, :destroy]
-    resources :plans
-    resources :schedules, only:[:show, :new, :edit, :update, :create, :destroy]
+    resources :users, only:[:index, :show, :edit, :update, :create, :destroy] do
+        member do
+            get :likes
+        end
+    end
     
+    get 'plans/reuse', to: 'plans#reuse'
+    resources :plans
+    resources :favorites, only: [:create, :destroy]    
+    resources :comments, only: [:create, :destroy]        
 end

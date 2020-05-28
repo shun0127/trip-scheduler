@@ -1,15 +1,9 @@
 <header class="mb-2">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark  sticky-top">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menubar_content">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content  mr-auto " id="menubar_content">
+    <nav class="navbar navbar-expand navbar-dark bg-dark  sticky-top">
             <ul class="navbar-nav">
                 <li class="nav-item"><%= link_to '全プラン一覧', search_path, class: 'nav-link' %></li>
                 <li class="nav-item"><%= link_to 'ユーザ一覧', users_path, class: 'nav-link' %></li>
                 <li class="nav-item"><%= link_to 'ランキング', plan_ranking_path, class: 'nav-link' %></li>
             </ul>
-        </div>
     </nav>
 </header>

@@ -1,0 +1,20 @@
+<div>
+    <h3>コメント一覧</h3>
+</div>
+  <div class="row">
+    <% comments.each do |comment| %>
+      <% user = User.find(comment.user_id)%>
+      <div class = "card col-sm-4 mb-1" >
+        <div class="card-header">
+          <p class="card-title">
+            <%= user.name %>
+          </p>
+        </div>
+        <div class="card-body">
+          <%=  comment.comment %> 
+          <%= link_to '削除', comment, method: :delete, class: 'btn btn-danger btn-sm' %>
+        </div>
+        
+      </div>
+    <% end %>
+  </div>

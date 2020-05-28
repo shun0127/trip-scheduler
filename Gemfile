@@ -55,7 +55,8 @@ gem 'kaminari'
 gem 'pry-byebug', group: :development
 gem "jquery-rails"
 gem "cocoon"
-
+gem 'dotenv-rails'
+gem 'gon'
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
 end

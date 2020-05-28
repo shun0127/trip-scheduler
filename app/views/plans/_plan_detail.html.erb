@@ -1,32 +1,64 @@
-<ul class="list-unstyled">
-  <li class="media mb-3">
-    <div class="media-title border">
-      <div>
-        プラン名：<%=  plan.title %> 
-      </div>
-      <div>
+<div class="card mb-1">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-sm-4"> 
+        <% if plan.open == 1 %>
+          <h3>公開中</h3>      
+        <% end %>
+        <p class="mb-0">プラン名：<%=  plan.title %></p> 
         <p class="mb-0">概要　　：<%= plan.content %></p>
-        <p class="mb-0">最終目的地　　：<%= plan.destination %></p>
+        <p class="mb-0">最終目的地：<%= plan.destination %></p>
+        <div id="tag_info" data-json="<%= plan.destination.to_json %>" ></div>
+      </div>
+      <div class="col-sm-8">
+        <div id="map"></div>
+    
+        <script>
+//          var target = document.getElementById('map'); 
+          var address =  JSON.parse(document.getElementById('tag_info').dataset.json); 
+          var map;
+          
+          function initMap() {
+            var geocoder = new google.maps.Geocoder();  //ジオコーディングのインスタンスの生成
+          
+            geocoder.geocode({ address: address }, function(results, status){
+            if (status == 'OK' && results[0]){  //status を確認して処理開始
+                map = new google.maps.Map(document.getElementById('map'), {center: results[0].geometry.location, zoom: 16});
+//                map = new google.maps.Map(document.getElementById('map'), {center: {lat: 40.748441, lng: -73.985664}, zoom: 14});
+              　var marker = new google.maps.Marker({position: map.getCenter(),map: map});
+              }
+             else{
+               alert('失敗しました。理由: ' + status);
+              }
+            }); 
+          }
+          
+          
+        </script> 
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_KEY']%>&callback=initMap" async defer></script>
       </div>
     </div>
-  </li>
+  </div>
+  
+  <div class="card-body">
   <% schedules.each do |schedule| %>
     <li class="media mb-1  border">
       <div class="media-body">
         <div>
           日付：<%=  schedule.date %> 
         </div>
-        <div>
-          <p class="mb-0">時間　　：<%= schedule.time %></p>
-        </div>
-        <div>
-          <p class="mb-0">目的地　　：<%= schedule.destination %></p>
-        </div>
+      <div>
+        <p class="mb-0">時間　　：<%= schedule.time %></p>
+      </div>
+      <div>
+        <p class="mb-0">目的地　　：<%= schedule.destination %></p>
+      </div>
         <div>
           <p class="mb-0">内容　　：<%= schedule.content %></p>
         </div>
-
       </div>
     </li>
   <% end %>
-</ul>
+  </div>
+</div>

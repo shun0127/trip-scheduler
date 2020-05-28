@@ -1,11 +1,11 @@
 <div class="text-center">
-  <h1>旅行プランの編集</h1>
+  <h1>旅行プランの流用作成</h1>
 </div>
 
 <div class="row">
     <div class="col-sm-10 offset-sm-1">
         
-        <%= form_with(model: @plan, local: true) do |f| %>
+        <%= form_with(model: @plan , local: true) do |f| %>
            <%= render 'plan_fields', f: f%>
             <hr>
             <div class="schedule" id="schedule_info">
@@ -13,12 +13,11 @@
                     <%= render 'schedule_fields', f: t %>
                 <% end %>
             </div>
-            <div class="links mb-1 text-center">
+            <div class="links mb-1  text-center">
                 <%= link_to_add_association "追加", f, :schedules ,class: 'btn btn-info btn-sm' %>
             </div>
-       
-            
-            <%= f.submit '更新', class: 'btn btn-primary btn-block ' %>
+            <%= hidden_field_tag :reuse, "reuse" %>
+            <%= f.submit '作成', class: 'btn btn-primary btn-block' %>
         <% end %>
     </div>
 </div>

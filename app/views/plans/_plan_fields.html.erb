@@ -1,18 +1,25 @@
-<div class="plan">
-    <div class="form-row">
-        <div class="form-group col-sm-6">
-            <%= f.label :title, 'プラン名' %>
-            <%= f.text_field :title, class: 'form-control' %>
-        </div>
-    
-        <div class="form-group col-sm-6">
-            <%= f.label :destination, '最終目的地' %>
-            <%= f.text_field :destination, class: 'form-control' %>
-        </div>
-    </div>        
-    <div class="form-group">
-        <%= f.label :content, '概要' %>
-        <%= f.text_field :content, class: 'form-control' %>
+<div class = "card border-info" >
+    <div class="card-header border-info">
+        <div class="form-inline ">
+            <div class="form-group col-sm-6 ">
+                <%= f.label :title, 'プラン名：' %>
+                <%= f.text_field :title, class: 'form-control', placeholder: "プラン名" %>
+            </div>
+        
+            <div class="form-group col-sm-6">
+                <%= f.label :destination, '最終目的地：' %>
+                <%= f.text_field :destination, class: 'form-control', placeholder: "最終目的地" %>
+            </div>
+        </div>  
     </div>
-    
+    <div class="card-body border-info">
+        <div class="form-group">
+            <%= f.label :content, '概要' %>
+            <%= f.text_area :content, class: 'form-control', rows: "3", placeholder: "旅の概要を記載" %>
+        </div>
+        <div class="form-check text-center">
+            <%= f.check_box :open, class: 'form-check-input' %>
+            <%= f.label :open, 'プランを公開する' %>
+        </div>
+    </div>
 </div>

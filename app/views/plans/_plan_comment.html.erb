@@ -1,0 +1,15 @@
+<div class="comment">
+    <%= form_with(model: current_user.comments.build, local: true) do |f| %>
+        <div class="row mt-1">
+            <div class="form-group col-sm-8 ">
+             <%= f.hidden_field :plan_id, :value => plan.id %>
+             <%= f.hidden_field :user_id, :value => current_user.id %>
+             <%= f.text_area :comment, class: 'form-control', rows: 2 %>
+            </div>
+            <div>
+                <%= f.submit "コメント", class: "btn btn-secondary btn-sm" %>
+            </div>
+        </div>
+        
+    <% end %>
+</div>

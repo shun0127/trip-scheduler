@@ -1,0 +1,23 @@
+body{
+    font-family:"游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+}
+
+#toppage{
+   font-family:"游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+   font-style: oblique; 
+}
+#toppage_all{
+  background-image:  url('toppage.jpg');
+   background-size:cover;
+
+}
+#schedule_box{
+   border: 1px solid;
+   
+   
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}
